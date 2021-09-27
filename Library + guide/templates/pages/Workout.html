@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<form class = 'mt-3' action="{% url 'Workout' %}" method="POST">
+  {% csrf_token %}
+  {%if authors%}
+    <select class="form-control" name='Diet' id="Diet">
+      {%for author in authors%}
+      <option value={{Diet.id}}>{{Diet}}</option>
+      {% endfor %}
+    </select>
+    {%endif%}
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+      <label class="form-check-label" for="flexSwitchCheckChecked">Did you follow your diet?</label>
+    </div>
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+      <label class="form-check-label" for="flexSwitchCheckChecked">Did you workout?</label>
+    </div>
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+      <label class="form-check-label" for="flexSwitchCheckChecked">Did you drink water?</label>
+    </div>
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+      <label class="form-check-label" for="flexSwitchCheckChecked">Did you practice a new skill?</label>
+    </div>
+  </div>
+</form>
+
+<h5 class='text-center mt-3'><a href="http://localhost:8000/Diet">Submit a Soft 75 Day</a></h5>
+
+{% endblock %}
